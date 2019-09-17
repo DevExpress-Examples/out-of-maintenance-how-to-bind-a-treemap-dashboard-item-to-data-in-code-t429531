@@ -7,7 +7,6 @@ namespace DashboardViewer_Treemap {
             InitializeComponent();
 
             Dashboard dashboard = new Dashboard();
-
             DashboardExtractDataSource dataSource = new DashboardExtractDataSource();
             dataSource.FileName = @"..\..\Data\SalesDataExtract.dat";
             dashboard.DataSources.Add(dataSource);
@@ -15,7 +14,9 @@ namespace DashboardViewer_Treemap {
             TreemapDashboardItem treeMap = new TreemapDashboardItem();
             treeMap.DataSource = dataSource;
             treeMap.Values.Add(new Measure("Sales"));            
-            treeMap.Arguments.Add(new Dimension { DataMember = "Product Category", GroupChildValues = true });
+            treeMap.Arguments.Add(new Dimension {
+                DataMember = "Product Category",
+                GroupChildValues = true });
             treeMap.Arguments.Add(new Dimension("Product Sub-Category"));
             treeMap.LayoutAlgorithm = DashboardTreemapLayoutAlgorithm.Striped;
 
